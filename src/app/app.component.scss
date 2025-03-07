@@ -8,12 +8,10 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: rgb(182, 236, 236);
 }
 
 .top-div {
   flex-grow: 1;
-  background-color: rgb(156, 233, 156);
 }
 
 .main-left-div {
@@ -23,5 +21,5 @@
 .right-div {
   width: 30%;
   max-height: 100vh;
-  background-color: rgb(224, 161, 236);
+  background-color: rgb(245, 224, 244);
 }
