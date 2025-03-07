@@ -1,4 +1,4 @@
-import { IAdress } from './adress.interface';
+import { IAddress } from './adress.interface';
 import { IStatus } from './status.interface';
 
 export interface IUser {
@@ -6,7 +6,7 @@ export interface IUser {
   email: string;
   senha: string;
   idade: number;
-  endereco: IAdress;
+  endereco: IAddress;
   telefone: string;
   ativo: boolean;
   funcao: string;
