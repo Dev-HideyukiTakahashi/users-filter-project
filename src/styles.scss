@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+@use "@angular/material" as mat;
+
+// Use the default configuration.
+$my-typography: mat.m2-define-typography-config();
+@include mat.typography-hierarchy($my-typography);
 
 html,
 body {
@@ -14,4 +19,8 @@ body {
   padding: 0;
   border: 0;
   box-sizing: border-box;
+}
+
+.u-text-align-center {
+  text-align: center;
 }
