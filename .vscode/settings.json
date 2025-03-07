@@ -1,0 +1,6 @@
+{
+  "files.autoSave": "afterDelay",
+  "editor.fontSize": 16,
+  "scm.alwaysShowRepositories": false,
+  "scm.alwaysShowActions": false
+}
