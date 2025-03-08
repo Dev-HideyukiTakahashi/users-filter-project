@@ -13,10 +13,12 @@ export class AppComponent implements OnInit {
   userSelected: IUser = {} as IUser;
   showUserDetails: boolean = false;
   usersList: IUser[] = [];
+  usersListFiltered: IUser[] = [];
 
   ngOnInit(): void {
     setTimeout(() => {
       this.usersList = UsersList;
+      this.usersListFiltered = this.usersList;
     }, 3000);
   }
 
@@ -26,6 +28,32 @@ export class AppComponent implements OnInit {
   }
 
   onFilter(filterOptions: IFilterOptions) {
-    console.log(filterOptions);
+    this.usersListFiltered = this.filterUserList(filterOptions, this.usersList);
+  }
+
+  filterUserList(filterOptions: IFilterOptions, usersList: IUser[]): IUser[] {
+    let filteredList: IUser[] = [];
+
+    filteredList = this.userFilterUsersListByName(
+      filterOptions.name,
+      usersList
+    );
+
+    return filteredList;
+  }
+
+  userFilterUsersListByName(
+    name: string | undefined,
+    usersList: IUser[]
+  ): IUser[] {
+    const NAME_NOT_TYPPED = name === undefined;
+
+    if (NAME_NOT_TYPPED) return usersList;
+
+    const filteredList = usersList.filter((user) =>
+      user.nome.toLowerCase().includes(name.toLowerCase())
+    );
+
+    return filteredList;
   }
 }
