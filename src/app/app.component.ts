@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { IUser } from './interfaces/user/user.interface';
 import { UsersList } from './data/users-list';
 import { IFilterOptions } from './interfaces/filter-options.interface';
+import { IUser } from './interfaces/user/user.interface';
+import { filterUserList } from './utils/filter-users-list';
 
 @Component({
   selector: 'app-root',
@@ -28,50 +29,6 @@ export class AppComponent implements OnInit {
   }
 
   onFilter(filterOptions: IFilterOptions) {
-    this.usersListFiltered = this.filterUserList(filterOptions, this.usersList);
-  }
-
-  filterUserList(filterOptions: IFilterOptions, usersList: IUser[]): IUser[] {
-    let filteredList: IUser[] = [];
-
-    filteredList = this.userFilterUsersListByName(
-      filterOptions.name,
-      usersList
-    );
-
-    filteredList = this.userFilterUsersListByStatus(
-      filterOptions.status,
-      filteredList
-    );
-
-    return filteredList;
-  }
-
-  userFilterUsersListByName(
-    name: string | undefined,
-    usersList: IUser[]
-  ): IUser[] {
-    const NAME_NOT_TYPPED = name === undefined;
-
-    if (NAME_NOT_TYPPED) return usersList;
-
-    const filteredList = usersList.filter((user) =>
-      user.nome.toLowerCase().includes(name.toLowerCase())
-    );
-
-    return filteredList;
-  }
-
-  userFilterUsersListByStatus(
-    status: boolean | undefined,
-    usersList: IUser[]
-  ): IUser[] {
-    const STATUS_NOT_SELECTED = status === undefined;
-
-    if (STATUS_NOT_SELECTED) return usersList;
-
-    const filteredList = usersList.filter((user) => user.ativo === status);
-
-    return filteredList;
+    this.usersListFiltered = filterUserList(filterOptions, this.usersList);
   }
 }
