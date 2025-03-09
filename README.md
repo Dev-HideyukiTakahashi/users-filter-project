@@ -1,59 +1,73 @@
 # UsersFilterProject
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+Este projeto é um aplicativo de filtros de usuários desenvolvido com Angular.
 
-## Development server
+## Principais Métodos
 
-To start a local development server, run:
+### Filtro por Nome
+
+Este método permite filtrar usuários pelo nome. Ele utiliza a função `filterByName` que recebe uma lista de usuários e um nome como parâmetros e retorna uma nova lista contendo apenas os usuários cujo nome corresponde ao parâmetro fornecido.
+
+```typescript
+filterByName(users: User[], name: string): User[] {
+  return users.filter(user => user.name.includes(name));
+}
+```
+
+### Filtro por Idade
+
+Este método permite filtrar usuários por idade. A função `filterByAge` recebe uma lista de usuários e uma idade como parâmetros e retorna uma nova lista contendo apenas os usuários cuja idade corresponde ao parâmetro fornecido.
+
+```typescript
+filterByAge(users: User[], age: number): User[] {
+  return users.filter(user => user.age === age);
+}
+```
+
+### Filtro por Localização
+
+Este método permite filtrar usuários pela localização. A função `filterByLocation` recebe uma lista de usuários e uma localização como parâmetros e retorna uma nova lista contendo apenas os usuários cuja localização corresponde ao parâmetro fornecido.
+
+```typescript
+filterByLocation(users: User[], location: string): User[] {
+  return users.filter(user => user.location.includes(location));
+}
+```
+
+## Como Executar
+
+Para iniciar o servidor de desenvolvimento local, execute:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Depois que o servidor estiver em execução, abra seu navegador e navegue até `http://localhost:4200/`.
 
-## Code scaffolding
+## Construção
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Para construir o projeto, execute:
 
 ```bash
 ng build
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Isso compilará seu projeto e armazenará os artefatos de construção no diretório `dist/`.
 
-## Running unit tests
+## Testes
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+Para executar testes unitários, use o seguinte comando:
 
 ```bash
 ng test
 ```
 
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
+Para testes de ponta a ponta (e2e), execute:
 
 ```bash
 ng e2e
 ```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+## Recursos Adicionais
 
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Para mais informações sobre o Angular CLI, visite a página [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli).
